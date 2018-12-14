@@ -12,8 +12,6 @@ export default class Form extends Component {
                         id="zipCode"
                         type="number"
                         name="zip"
-                        min="10000"
-                        max="99999"
                         placeholder="Zip Code"
                     />
                     <button>Get Weather</button>

@@ -14,6 +14,15 @@ class App extends Component {
     error: ""
   };
 
+  handleError = () => {
+    this.setState({
+    temperature: "",
+    city: "",
+    description: "",
+    error: "Please enter a valid Zip Code."
+  });
+}
+
   getWeather = async e => {
     e.preventDefault();
     const zip = e.target.elements.zip.value;
@@ -24,12 +33,9 @@ class App extends Component {
     const data = await api_call.json();
     console.log(data);
     if (!zip) {
-      this.setState({
-        temperature: "",
-        city: "",
-        description: "",
-        error: "Please enter a valid Zip Code."
-      });
+      this.handleError()
+    } else if (data.cod === "404" ) {
+      this.handleError()
     } else {
       this.setState({
         temperature: data.main.temp,
