@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Form from "./Form";
+import {WeatherOutput} from './WeatherOutput';
+import './Weather.css';
 
 const apiKey = "a156cdda160b23f73ac7ae3ea24e537b";
 const apiKey2 =
@@ -23,6 +25,7 @@ export default class Weather extends Component {
       temperature: "",
       city: "",
       state: "",
+      humidity: "",
       description: "",
       error: "Please enter a valid Zip Code."
     });
@@ -70,54 +73,40 @@ export default class Weather extends Component {
     console.log(this.state)
   };
 
-  // getLocation = async (e) => {
-  //     e.preventDefault();
-  //     const zip = e.target.elements.zip.value
-  //     const apiCall = await fetch(`https://www.zipcodeapi.com/rest/${apiKey2}/info.json/${zip}/degrees`)
-  //     const data = await apiCall.json()
-  //     console.log(data)
-  //     this.setState({
-  //         city: data.city,
-  //         state: data.state,
-  //     })
-  // }
-
-  //   getWeather = async e => {
-  //     e.preventDefault();
-  //     const zip = e.target.elements.zip.value;
-  //     console.log(zip);
-  //     const api_call = await fetch(
-  //       `http://api.openweathermap.org/data/2.5/weather?zip=${zip},us&APPID=${apiKey}&units=imperial`
-  //     );
-  //     const data = await api_call.json();
-  //     console.log(data);
-  //     if (!zip) {
-  //       this.handleError()
-  //     } else if (data.cod === "404" ) {
-  //       this.handleError()
-  //     } else {
-  //       this.setState({
-  //         temperature: data.main.temp,
-  //         description: data.weather[0].main,
-  //         error: ""
-  //       });
-  //       console.log(this.state);
-  //     }
-  //   };
-
   render() {
-    const temp = parseInt(this.state.temperature);
     return (
-      <div>
-        <span>
-          <Form getInfo={this.getInfo} />
-        </span>
-        {this.state.city && this.state.state && <p>Location: {this.state.city}, {this.state.state}</p>}
-        {this.state.temperature && <p>Temperature: {temp}°</p>}
-        {this.state.humidity && <p>Humidity: {this.state.humidity}%</p>}
-        {this.state.description && <p>Description: {this.state.description}</p>}
-        {this.state.error && <p>{this.state.error}</p>}
-      </div>
+        <div className="weatherBox">
+            <div>
+                <Form getInfo={this.getInfo} />
+            </div>
+            <div className="weatherOutput">
+                <WeatherOutput
+                temperature={this.state.temperature}
+                city={this.state.city}
+                state={this.state.state}
+                humidity={this.state.humidity}
+                description={this.state.description}
+                error={this.state.error}
+                />
+            </div>
+        </div>
     );
   }
 }
+
+//   render() {
+//     const temp = parseInt(this.state.temperature);
+//     return (
+//       <div>
+//         <span>
+//           <Form getInfo={this.getInfo} />
+//         </span>
+//         {this.state.city && this.state.state && <p>Location: {this.state.city}, {this.state.state}</p>}
+//         {this.state.temperature && <p>Temperature: {temp}°</p>}
+//         {this.state.humidity && <p>Humidity: {this.state.humidity}%</p>}
+//         {this.state.description && <p>Description: {this.state.description}</p>}
+//         {this.state.error && <p>{this.state.error}</p>}
+//       </div>
+//     );
+//   }
+// }

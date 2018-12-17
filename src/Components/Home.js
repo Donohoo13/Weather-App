@@ -6,7 +6,7 @@ export default class Home extends Component {
         return(
             <div>
                 <h1>Weather Information</h1>
-                <p>Find out temperature, conditions and more.</p>
+                <p id="titleP">Find out temperature, conditions and more.</p>
             </div>
         );
     }

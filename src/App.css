@@ -1,3 +1,31 @@
+/* App */
+
 .App {
-    text-align: center;
+    background-image: linear-gradient(to bottom right,rgba(0,168,232,1), rgba(49,47,47,.7));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.Title {
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+    border: solid white;
+}
+
+.Weather {
+    border: solid white;
+    margin: 1em;
+}
+
+/* <-------------------------------------------------------------------------------------------------> */
+/* Home */
+
+#titleP {
+    margin-top: -1em;
+}
+
+/* <-------------------------------------------------------------------------------------------------> */
+/* Home */

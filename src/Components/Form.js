@@ -25,7 +25,8 @@ export default class Form extends Component {
                         type="number"
                         name="zip"
                         placeholder="Zip Code"
-                        onChange={e => e.target.value}
+                        min="10"
+                        max="99999"
                     />
                     <button>Get Weather</button>
                 </form>
