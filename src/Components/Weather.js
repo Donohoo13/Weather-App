@@ -36,7 +36,7 @@ export default class Weather extends Component {
     const zip = e.target.elements.zip.value;
     console.log(zip);
     await fetch(
-      `https://www.zipcodeapi.com/rest/${apiKey2}/info.json/${zip}/degrees`,
+      `https://www.zipcodeapi.com/rest/${apiKey3}/info.json/${zip}/degrees`,
       {
         mode: "cors",
         headers: {
