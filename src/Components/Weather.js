@@ -40,6 +40,7 @@ export default class Weather extends Component {
       {
         mode: "cors",
         headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
             'Access-Control-Allow-Credentials' : true,
             'Access-Control-Allow-Origin':'*',
             'Access-Control-Allow-Methods':'GET',
